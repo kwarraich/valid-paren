@@ -1,0 +1,31 @@
+class Solution(object):
+    def isValid(self, s):
+        softBrackets = ["(", ")"]
+        curlyBrackets = ['{', '}']
+        sqrBrackets = ['[', ']']
+        softCounter = 0 
+        curlCounter = 0 
+        sqrCounter = 0 
+        
+        for i in range (len(s)-1):
+            if s[i] == softBrackets[0]:
+                softCounter += 1
+            elif s[i] == softBrackets[1]:
+                softCounter += 1
+            elif s[i] == curlyBrackets[0]:
+                curlCounter += 1
+            elif s[i] == curlyBrackets[1]:
+                curlCounter += 1
+            elif s[i] == sqrBrackets[0]:
+                sqrCounter += 1 
+            elif s[i] == sqrBrackets[1]:
+                sqrCounter += 1
+                
+        if softCounter % 2 == 1:
+            return False
+        elif curlCounter % 2 == 1:
+            return False
+        elif sqrCounter % 2 == 1:
+            return False
+        
+        return True 
